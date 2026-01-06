@@ -1,0 +1,49 @@
+import java.io.File; 
+import java.io.FileNotFoundException; 
+import java.util.Scanner; 
+public class game {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Zadej svou přezdívku:");
+		String name = sc.nextLine();
+	archer arch = new archer(name, 100, 15);
+	String Name = archer.Name;
+	warrior war = new warrior(name, 125, 10);
+	String Name2 = warrior.Name;
+	wizard wiz = new wizard(name, 75, 20);
+	String Name3 = wizard.Name;
+	arch.zdelHodnoty();
+	war.zdelHodnoty();
+	wiz.zdelHodnoty();
+	
+	System.out.println("Zvol si Postavu od 1 do 3");
+	int zvoleni = sc.nextInt();
+	if (zvoleni == 1){
+		sc.nextLine();
+		arch.zdelHodnoty();
+		arch.predstavSe();
+	}else if (zvoleni == 2){
+		war.zdelHodnoty();
+		arch.predstavSe();
+	}else if (zvoleni == 3){
+		wiz.zdelHodnoty();
+		arch.predstavSe();
+	}else{}
+	System.out.println("Chceš vstoupit do boje?");
+	String vstup = sc.nextLine();
+	if (vstup .equals("ano")){
+	zombie zomb = new zombie("Hrozivý Zombie", 45, 1);
+	zomb.zdelHodnoty();
+	while(arch.HP>0&& zomb.HP>0){
+		arch.HP = arch.HP- zomb.Demage;
+		
+	}
+	} else if (vstup .equals("ne")){
+		System.out.println("Tak jdi zpátky na pec srabe");
+	}
+	arch.zdelHodnoty();
+	
+	}
+
+}
